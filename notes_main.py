@@ -13,6 +13,7 @@ with open("notes.json", "w") as file:
     json.dump(notes, file, sort_keys = True, ensure_ascii = False)
 
 '''Интерфейс приложения'''
+
 #параметры окна приложения
 notes_win = QWidget()
 notes_win.setWindowTitle('Умные заметки')
@@ -70,6 +71,7 @@ notes_win.setLayout(layout_notes)
 '''Функционал приложения'''
  
 '''Работа с текстом заметки'''
+
 def add_note():
     note_name, ok = QInputDialog.getText(notes_win, "Добавить заметку", "Название заметки: ")
     if ok and note_name != "":
@@ -111,6 +113,7 @@ def del_note():
         print("Заметка для удаления не выбрана!")
  
 '''Работа с тегами заметки'''
+
 def add_tag():
     if list_notes.selectedItems():
         key = list_notes.selectedItems()[0].text()
@@ -124,6 +127,7 @@ def add_tag():
         print(notes)
     else:
         print("Заметка для добавления тега не выбрана!")
+
 def del_tag():
     if list_tags.selectedItems():
         key = list_notes.selectedItems()[0].text()
